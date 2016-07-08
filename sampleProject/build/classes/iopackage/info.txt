@@ -1,0 +1,3 @@
+The Main difference is:
+Stream - Byte Based(Read or write Bytes)
+Reader - Character Based(Read or Write Character)

@@ -1,0 +1,20 @@
+#Two types fo exception
+-> Checked Exception
+    ->  A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions.
+    -> These exceptions cannot simply be ignored at the time of compilation, the Programmer should take care of (handle) these exceptions.
+-> un checked exception
+    -> An Unchecked exception is an exception that occurs at the time of execution, these are also called as Runtime Exceptions,
+    -> these include programming bugs, such as logic errors or improper use of an API. runtime exceptions are ignored at the time of compilation.
+-> Errors
+    -> These are not exceptions at all, but problems that arise beyond the control of the user or the programmer.
+    -> Errors are typically ignored in your code because you can rarely do anything about an error. For example,
+     -> if a stack overflow occurs, an error will arise. They are also ignored at the time of compilation.
+
+-> Heirarchy
+->  java.lang ->
+    Object ->
+    Throwable ->
+     -> Errors
+     -> Excetions
+        -> Runtime Exception
+        -> Other Exception

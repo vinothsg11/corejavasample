@@ -1,0 +1,62 @@
+A lambda expression is characterized by the following syntax −
+
+parameter -> expression body
+
+Following are the important characteristics of a lambda expression −
+
+    Optional type declaration − No need to declare the type of a parameter.
+     The compiler can inference the same from the value of the parameter.
+
+    Optional parenthesis around parameter − No need to declare a single parameter in parenthesis.
+     For multiple parameters, parentheses are required.
+
+    Optional curly braces − No need to use curly braces in expression body if the body contains a single statement.
+
+    Optional return keyword − The compiler automatically returns the value if the body has a single expression to return the value.
+     Curly braces are required to indicate that expression returns a value.
+
+Limitations of Generic :-
+
+    Cannot Instantiate Generic Types with Primitive Types
+        //Pair<int, char> p = new Pair<>(8, 'a');  // compile-time error
+    Cannot Create Instances of Type Parameters
+        public static <E> void append(List<E> list) {
+            E elem = new E();  // compile-time error
+            list.add(elem);
+        }
+    Cannot Declare Static Fields Whose Types are Type Parameters
+        public class MobileDevice<T> {
+            private static T os;
+
+            // ...
+        }
+    Cannot Use Casts or instanceof With Parameterized Types
+        public static <E> void rtti(List<E> list) {
+            if (list instanceof ArrayList<Integer>) {  // compile-time error
+                // ...
+            }
+        }
+    Cannot Create Arrays of Parameterized Types
+        Object[] stringLists = new List<String>[];  // compiler error, but pretend it's allowed
+        stringLists[0] = new ArrayList<String>();   // OK
+        stringLists[1] = new ArrayList<Integer>();  // An ArrayStoreExc
+    Cannot Create, Catch, or Throw Objects of Parameterized Types
+        class MathException<T> extends Exception { /* ... */ }    // compile-time error
+
+        // Extends Throwable directly
+        class QueueFullException<T> extends Throwable { /* ... */ // compile-time error
+
+        class Parser<T extends Exception> {
+            public void parse(File file) throws T {     // OK
+                // ...
+            }
+        }
+    Cannot Overload a Method Where the Formal Parameter Types of Each Overload Erase to the Same Raw Type
+
+         A class cannot have two overloaded methods that will have the same signature after type erasure.
+
+        public class Example {
+            public void print(Set<String> strSet) { }
+            public void print(Set<Integer> intSet) { }
+        }
+

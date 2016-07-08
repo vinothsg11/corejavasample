@@ -1,0 +1,70 @@
+Hashmap Vs Hash Table
+===========================
+1. Hashtable is synchronized, whereas HashMap is not. 
+This makes HashMap better for non-threaded applications,
+ as unsynchronized Objects typically perform better than synchronized ones.
+2.Hashtable does not allow null keys or values.
+ HashMap allows one null key and any number of null values.
+3.One of HashMap's subclasses is LinkedHashMap,
+ so in the event that you'd want predictable iteration order
+(which is insertion order by default), you could easily swap out the HashMap for a LinkedHashMap.
+This wouldn't be as easy if you were using Hashtable.
+
+
+ArrayList Vs HashMap
+======================
+1) BothArrayList and HashMap are not synchronized, you should not use them in the multi-threading environment
+ without external  synchronization.
+
+2) Both ArrayList and HashMap Iterator are fail-fast, they will throw ConcurrentModificationException
+ as soon as they detect any structural change in ArrayList or HashMap once Iterator is created.
+
+3) Both ArrayList and HashMap allows null. HashMap allows null key and values.
+
+4) ArrayList allows duplicate elements and HashMap allow duplicate values.
+
+5) In terms of performanceArrayList get() provide constant time performance
+ if you know index similar to get() method of HashMap which provides constant-time performance.
+
+6) ArrayList is backed by array similarly, HashMap is also internally implemented by Array.
+
+7) Both ArrayList and HashMap can be traversed through Iterator in Java.
+
+
+ When to use List, Set and Map in Java
+Based upon our understanding of difference between Set, List and Map we can now decide when to use List, Set or Map in Java.
+
+1) If you need to access elements frequently by using index, than List is a way to go. Its implementation
+ e.g. ArrayList provides faster access if you know index.
+
+2) If you want to store elements and want them to maintain an order on which they are inserted into collection
+ then go for List again, as List is an ordered collection and maintain insertion order.
+
+3) If you want to create collection of unique elements and don't want any duplicate than choose any Set implementation
+ e.g. HashSet, LinkedHashSet or TreeSet. All Set implementation follow there general contract e.g. uniqueness but also add addition feature e.g. TreeSet is a SortedSet and elements stored on TreeSet can be sorted by using Comparator or Comparable in Java. LinkedHashSet also maintains insertion order.
+
+4) If you store data in form of key and value than Map is the way to go. You can choose from Hashtable, HashMap,
+ TreeMap based upon your subsequent need. In order to choose between first two see difference between HashSet and HashMap in Java.
+
+
+Set Implementations
+===================
+
+    java.util.EnumSet
+    java.util.HashSet
+    java.util.LinkedHashSet
+    java.util.TreeSet
+
+    
+    
+    Memory settings :-
+    ===================
+     -Xms1024m 
+     -Xmx1800m
+     
+     
+ Install Check style plugin:-
+ ============================
+ 1. Help -> Market Place
+ 2. Search for Checkstyle
+ 3. Choose checkstyle plugin 6.19.0
